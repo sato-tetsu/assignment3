@@ -1,0 +1,23 @@
+<h1>Books#show</h1>
+
+<h2><%= @book.title %></h2>
+<ul class="">
+
+  <li>
+     By<a href="#">
+     <%= @book.user.name %></a>
+  </li>
+  <li>
+    <%= @book.created_at.strftime('%Y/%m/%d') %>
+  </li>
+  <li>
+    <% if @book.user == current_user %>
+      <%= link_to "削除", book_path(@book), method: :delete %>
+    <% end %>
+  </li>
+
+</ul>
+<div class="">
+    <p><%= @book.body %></p>
+</div>
+
