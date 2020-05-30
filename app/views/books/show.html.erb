@@ -1,8 +1,8 @@
 <h1>Books#show</h1>
 
+<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
 <h2><%= @book.title %></h2>
 <ul class="">
-
   <li>
      By<a href="#">
      <%= @book.user.name %></a>

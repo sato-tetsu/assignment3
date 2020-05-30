@@ -6,7 +6,11 @@
 	<%= f.text_field :name, autofocus: true, placeholder:"名前"  %>
 
 	<h3>自己紹介</h3>
-	<%= f.text_field :introduction, placeholder:"自己紹介"  %>
+	<%= f.text_field :introduction, placeholder:"自己紹介"  %><br>
+
+	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+	<h3>ProfileImage</h3>
+	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
 	
 	<%= f.submit "変更を保存" %>
 <% end %>

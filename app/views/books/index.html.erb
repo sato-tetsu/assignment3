@@ -1,8 +1,8 @@
 <h1>Books#index</h1>
 
-
   <% @books.each do |book| %>
 
+    <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %><br>
     <%= link_to book_path(book.id) do %>
        <%= book.title %>
     <% end %>

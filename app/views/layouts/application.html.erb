@@ -22,10 +22,15 @@
               <%= link_to '投稿フォーム', new_book_path %>
             </li>
             <li class="">
-              <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
               <%= link_to 'マイページ', user_path(current_user.id) %>
             </li>
+            <li class="">
+              <%= link_to 'ホーム', books_path %>
+            </li>
           <% else %>
+            <li class="">
+              <%= link_to 'ホーム', books_path %>
+            </li>
             <li class="">
               <%= link_to "新規登録", new_user_registration_path %>
             </li>
