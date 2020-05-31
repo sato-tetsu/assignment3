@@ -1,8 +1,7 @@
 <h1>Books#new</h1>
 
-
 <div>
-  <%= form_for(@book, url: books_path) do |f| %>
+  <%= form_for(@book) do |f| %>
 
     <!-- エラーメッセージ -->
     <% if @book.errors.any? %>
@@ -24,3 +23,6 @@
     
   <% end %>
 </div>
+
+
+  <!-- 削除予定 -->
