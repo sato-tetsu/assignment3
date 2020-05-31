@@ -12,25 +12,33 @@
   <body>
 
         <!-- ここから -->
-      <div id="slidemenu">
-        <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+      <div class="header-container">
+        <ul>
           <% if user_signed_in? %>
-            <li class="">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <li>
+              <%= link_to 'Home', user_path(current_user.id) %>
             </li>
-            <li class="">
-              <%= link_to '投稿フォーム', new_book_path %>
+            <li>
+              <%= link_to 'Users', user_path(current_user.id) %>
             </li>
-            <li class="">
-              <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-              <%= link_to 'マイページ', user_path(current_user.id) %>
+            <li>
+              <%= link_to 'Books', user_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to "logput", destroy_user_session_path, method: :delete %>
             </li>
           <% else %>
-            <li class="">
-              <%= link_to "新規登録", new_user_registration_path %>
+            <li>
+              <%= link_to 'Home', user_path(current_user.id) %>
             </li>
-            <li class="">
-              <%= link_to "ログイン", new_user_session_path %>
+            <li>
+              <%= link_to 'About', "##" %>
+            </li>
+            <li>
+              <%= link_to "sign up", new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to "login", new_user_session_path %>
             </li>
           <% end %>
         </ul>
