@@ -1,46 +1,16 @@
-<h1>User info</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<!-- User info -->
+			<%= render 'users/info', user: @user %>
+			<!-- New Book -->
+			<%= render 'books/new', book: @book %>
+		</div>
+		<div class="col-xs-9">
+	  		<!-- リスト表示 -->
+			<%= render 'books/list', books: @books %>
+		</div>
+	</div>
+</div>
 
-  <!-- ユーザ表示 -->
-  <h3><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
-  <h3><%= @user.introduction %></h3>
-
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-  <br>
-
-  <!-- 新規投稿 -->
-  <div>
-    <%= form_for(@book) do |f| %>
-      <!-- エラーメッセージ -->
-      <% if @book.errors.any? %>
-        <h2><%= @book.errors.count %>件のエラーが発生しました。</h2>
-        <ul>
-          <li><%= flash[:alert1] %></li>
-        </ul>
-      <% end %>
-      <!-- エラーメッセージ -->
-      
-      <p>本のタイトル</p>
-      <%= f.text_field :title, placeholder:"本のタイトル" %>
-
-      <p>本の感想</p>
-      <%= f.text_area :body, placeholder:"本の感想" %>
-
-      <p>送信ボタン</p>
-      <%= f.submit "送信" %>
-      
-    <% end %>
-  </div>
-
-  <br>
-  <br>
-
-
-
-
-  <!-- リスト表示 -->
-  <%= render 'books/list', books: @books %>
-  
-  <%= paginate @books %>
+<%= paginate @books %>

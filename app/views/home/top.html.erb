@@ -1,0 +1,33 @@
+<div class="container">
+	<div clsss="row">
+
+		<div class="row">
+			<div class="col-xs-6 center-block center-block">
+				<h1>Welcome to <span class="glyphicon glyphicon-book"></span> Bookers !!</h1>
+
+				<h5>
+				<p>In <span class="glyphicon glyphicon-book"></span> Bookers,</p>
+				<p>you can share and exchange your opinions , inpressions , and emotions</p>
+				<p>about various books!</p>
+				</h5>
+			</div>
+		</div>
+
+		<div class="row">
+			<%= link_to new_user_session_path do %>
+				<div class="btn btn-primary center-block" style="width: 256px" >
+					login
+				</div>
+			<% end %>
+		</div>
+
+		<div class="row">
+			<%= link_to new_user_registration_path do %>
+				<div class="btn btn-success center-block" style="width: 256px" >
+					sign up
+				</div>
+			<% end %>
+		</div>
+
+	</div>
+</div>
