@@ -1,9 +1,16 @@
-<h1>Books#index</h1>
-
-  <!-- リスト表示 -->
-  <%= render 'books/list', books: @books %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+			<!-- User info -->
+			<%= render 'users/info', user: @user %>
+			<!-- New Book -->
+			<%= render 'books/new', book: @book %>
+		</div>
+		<div class="col-xs-9">
+			<!-- リスト表示 -->
+			<%= render 'books/list', books: @books %>
+		</div>
+	</div>
+</div>
 
 <%= paginate @books %>
-
-
-  <!-- 削除予定 -->

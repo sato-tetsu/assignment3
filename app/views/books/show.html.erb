@@ -1,23 +1,49 @@
-<h1>Books#show</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <!-- User info -->
+      <%= render 'users/info', user: @user %>
+      <!-- New Book -->
+      <%= render 'books/new', book: @book %>
+    </div>
+    <div class="col-xs-9">
+      <h1>Book detail</h1>
 
-<%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-<h2><%= @book.title %></h2>
-<ul class="">
-  <li>
-     By<a href="#">
-     <%= @book.user.name %></a>
-  </li>
-  <li>
-    <%= @book.created_at.strftime('%Y/%m/%d') %>
-  </li>
-  <li>
-    <% if @book.user == current_user %>
-      <%= link_to "削除", book_path(@book), method: :delete %>
-    <% end %>
-  </li>
+        <!-- リスト表示 -->
+        <table class="table table-striped">
 
-</ul>
-<div class="">
-    <p><%= @book.body %></p>
+          <tbody>
+            <tr>
+              <td>
+
+                <%= link_to user_path(@user.id) do %>
+                  <%= attachment_image_tag @books.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+                <% end %>
+
+                <%= link_to user_path(@user.id) do %>
+                  <p><%= @user.name %></p>
+                <% end %>
+
+              </td>
+              <td><%= @books.title %></td>
+              <td><%= @books.body %></td>
+
+              <% if @books.user == current_user %>
+                <td><%= link_to "編集", edit_book_path(@books), class: "btn btn-default" %></td>
+              <% end %>
+
+              <% if @books.user == current_user %>
+                <td><%= link_to "削除", book_path(@books), method: :delete, class: "btn btn-default" %></td>
+              <% end %>
+
+            </tr>
+          </tbody>
+
+        </table>
+
+        <!-- リスト表示 -->
+
+    </div>
+  </div>
 </div>
 
