@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+  <h6><%= flash[:notice] %></h6>
+<% end %>
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-3">
@@ -29,11 +34,8 @@
               <td><%= @books.body %></td>
 
               <% if @books.user == current_user %>
-                <td><%= link_to "編集", edit_book_path(@books), class: "btn btn-default" %></td>
-              <% end %>
-
-              <% if @books.user == current_user %>
-                <td><%= link_to "削除", book_path(@books), method: :delete, class: "btn btn-default" %></td>
+                <td><%= link_to "Edit", edit_book_path(@books), class: "btn btn-default" %></td>
+                <td><%= link_to "Destroy", book_path(@books), method: :delete, class: "btn btn-default" %></td>
               <% end %>
 
             </tr>

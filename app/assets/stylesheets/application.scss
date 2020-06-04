@@ -44,11 +44,11 @@
 .header-list ul {
   list-style: none;
   text-align: right;
+  float: right;
 }
 
 .header-list li {
-	padding: 0 20px;
-	float: right;
+	float: left;
 	line-height: 50px;
 }
 
@@ -63,4 +63,9 @@
 
 .margin-area{
 	margin-bottom: 10px;
+}
+
+.box{
+	display: inline-block;
+	padding: 0px 20px;
 }

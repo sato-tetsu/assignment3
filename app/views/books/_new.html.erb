@@ -2,14 +2,6 @@
         <h1>New book</h1>
         <%= form_for(book) do |f| %>
 
-          <!-- エラーメッセージ -->
-          <% if book.errors.any? %>
-            <h2><%= book.errors.count %>件のエラーが発生しました。</h2>
-            <ul>
-              <li><%= flash[:alert1] %></li>
-            </ul>
-          <% end %>
-          <!-- エラーメッセージ -->
           
           <p>Title</p>
           <%= f.text_field :title %>
@@ -18,7 +10,7 @@
           <%= f.text_area :body %>
 
           <br>
-          <%= f.submit "Create book", class: "btn btn-default" %>
+          <%= f.submit "Create Book", class: "btn btn-default" %>
           
         <% end %>
       </div>

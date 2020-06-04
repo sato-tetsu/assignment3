@@ -1,16 +1,26 @@
-<h1>User#edit</h1>
-<h2>プロフィール編集</h2>
-
-<%= form_for(@user) do |f| %>
-	<h3>名前</h3>
-	<%= f.text_field :name, autofocus: true, placeholder:"名前"  %>
-
-	<h3>自己紹介</h3>
-	<%= f.text_field :introduction, placeholder:"自己紹介"  %><br>
-
-	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-	<h3>ProfileImage</h3>
-	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
-	
-	<%= f.submit "変更を保存" %>
+<% if flash[:alert2] %>									<!-- @book.errors.any? -->
+	<h5>error</h5>										<!-- @book.errors.count -->
+		<ul>
+			<% flash[:alert2].each do |message| %>
+				<li><h6><%= message %></h6></li>
+			<% end %>
+		</ul>
 <% end %>
+
+<div class="container">
+	<h2>User info</h2>
+
+	<%= form_for(@user) do |f| %>
+		<h3>Name</h3>
+		<%= f.text_field :name, autofocus: true, placeholder:"名前"  %>
+
+		<h3>Introduction</h3>
+		<%= f.text_field :introduction, placeholder:"自己紹介"  %><br>
+
+		<h3>Image</h3>
+		<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+		<%= f.attachment_field :profile_image, placeholder: "Image" %><br>
+		
+		<%= f.submit "Update User", class:"btn btn-primary" %>
+	<% end %>
+</div>
