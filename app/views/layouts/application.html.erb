@@ -12,48 +12,47 @@
   <body>
 
         <!-- ここから -->
-      <div class="container-fluid header-list">
+    <header class="container-fluid">
+      <div class="row header-list">
           <ul>
-            <% if user_signed_in? %>
+            <% if user_signed_in? %>        <!-- サインインしている場合 -->
               <li>
-                <%= link_to  destroy_user_session_path, method: :delete do %>
-                  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> logout
+                <%= link_to user_path(current_user.id), class:"box" do %>
+                  <span class="glyphicon glyphicon-home"></span> Home
                 <% end %>
               </li>
               <li>
-                <%= link_to books_path do %>
-                  <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books
+                <%= link_to users_path, class:"box" do %>
+                  <span class="glyphicon glyphicon-user"></span> Users
                 <% end %>
               </li>
               <li>
-                <%= link_to users_path do %>
-                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users
+                <%= link_to books_path, class:"box" do %>
+                  <span class="glyphicon glyphicon-book"></span> Books
                 <% end %>
               </li>
               <li>
-                <%= link_to user_path(current_user.id) do %>
-                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                <%= link_to destroy_user_session_path, method: :delete, class:"box" do %>
+                  <span class="glyphicon glyphicon-log-out"></span> logout
                 <% end %>
               </li>
-            <% else %>
+            <% else %>                   <!-- サインインしていない場合 -->
               <li>
-                <%= link_to new_user_session_path do %>
-                  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> login
-                <% end %>
-              </li>
-              <li>
-                <%= link_to new_user_registration_path do %>
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> sign up
+                <%= link_to "/", class:"box" do %>
+                  <span class="glyphicon glyphicon-home"></span> Home
                 <% end %>
               </li>
               <li>
-                <%= link_to "/home/about" do %>
-                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span> About
+                <%= link_to "/home/about", class:"box" do %>
+                  <span class="glyphicon glyphicon-link"></span> About
                 <% end %>
               </li>
               <li>
-                <%= link_to "/home/top" do %>
-                  <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home
+                <%= link_to "sign up", "/users/sign_up", class:"glyphicon glyphicon-edit box" %>
+              </li>
+              <li>
+                <%= link_to "/users/sign_in", class:"box" do %>
+                  <span class="glyphicon glyphicon-log-in"></span> login
                 <% end %>
               </li>
             <% end %>
@@ -62,6 +61,8 @@
             Bookers
           </div>
       </div>
+    </header><!-- /header -->
+
 
     <!-- ここまで -->
 
