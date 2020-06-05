@@ -15,12 +15,12 @@
 		<%= f.text_field :name, autofocus: true, placeholder:"名前"  %>
 
 		<h3>Introduction</h3>
-		<%= f.text_field :introduction, placeholder:"自己紹介"  %><br>
+		<%= f.text_area :introduction, placeholder:"自己紹介"  %><br>
 
 		<h3>Image</h3>
 		<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
 		<%= f.attachment_field :profile_image, placeholder: "Image" %><br>
 		
-		<%= f.submit "Update User", class:"btn btn-primary" %>
+		<%= f.submit "Update User", class:"pad-side-5" %>
 	<% end %>
 </div>
