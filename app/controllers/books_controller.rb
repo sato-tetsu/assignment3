@@ -8,15 +8,17 @@ class BooksController < ApplicationController
     end
 
     def create
-    	@book = Book.new(book_params)
+        @books = Book.page(params[:page]).reverse_order
+        @user = current_user
+        @book = Book.new(book_params)
         @book.user_id = current_user.id
-        
+
         if @book.save
             flash[:notice] = "successfully"
-    	   redirect_to books_path
+    	    redirect_to book_path(@book.id)          #ここが間違い
         else
             flash[:alert1] = @book.errors.full_messages
-            redirect_to books_path
+            render :index
         end
     end
 
